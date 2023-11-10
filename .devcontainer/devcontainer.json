@@ -1,5 +1,5 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+  "image": "mcr.microsoft.com/devcontainers/java:latest",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -13,5 +13,5 @@
       }
     }
   },
-  "postCreateCommand": "source \"$HOME/.sdkman/bin/sdkman-init.sh\" && yes | sdk upgrade && echo 'Java Version: $(java --version) 🎉🚀'"
+  //"postCreateCommand": "source \"$HOME/.sdkman/bin/sdkman-init.sh\" && yes | sdk upgrade && echo 'Java Version: $(java --version) 🎉🚀'"
 }
