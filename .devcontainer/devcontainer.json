@@ -1,21 +1,18 @@
-// https://github.com/devcontainers/templates/tree/main/src/java
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/java
 {
-    "name": "Java",
-    "image": "mcr.microsoft.com/devcontainers/21-bullseye",
-    "features": {
-        "ghcr.io/devcontainers/features/java:1": {
-            "version": "21",
-            "installMaven": "true",
-            "installGradle": "false"
-        }
-    },
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "vscjava.vscode-java-pack",
-                "esbenp.prettier-vscode"
-            ]
-        }
-    },
-    "postCreateCommand": "echo 'Java Version: $(java --version) 🎉🚀'"
+	"name": "Java",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/java:1-21-bullseye",
+	"features": {
+		"ghcr.io/devcontainers/features/java:1": {
+			"version": "none",
+			"installMaven": "true",
+			"installGradle": "false"
+		},
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/cirolosapio/devcontainers-features/alpine-gh-copilot-cli:0": {},
+		"ghcr.io/cirolosapio/devcontainers-features/alpine-git:0": {}
+	},
+	"postCreateCommand": "echo 'Java Version: $(java --version) 🎉🚀'"
 }
