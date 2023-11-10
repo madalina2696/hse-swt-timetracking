@@ -1,4 +1,4 @@
-swt/PrimaryController.class
-swt/App.class
+timetracking/PrimaryController.class
 module-info.class
-swt/SecondaryController.class
+timetracking/SecondaryController.class
+timetracking/App.class

@@ -4,7 +4,8 @@
     "vscode": {
       "extensions": [
         "vscjava.vscode-java-pack",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "shrey150.javafx-support"
       ],
       "settings": {
         "java.compile.nullAnalysis.mode": "automatic",
@@ -13,5 +14,5 @@
       }
     }
   },
-  //"postCreateCommand": "echo 'Java Version: $(java --version) 🎉🚀'"
+  "postCreateCommand": "sh .devcontainer/post-create.sh"
 }

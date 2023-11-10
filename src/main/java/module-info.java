@@ -1,6 +1,6 @@
 module timetracking {
     requires javafx.controls;
-    requires javafx.fxml;
+    requires javafx.base;
 
     opens timetracking to javafx.fxml;
     exports timetracking;
