@@ -1,4 +1,4 @@
-/workspaces/hse-swt-timetracking/src/main/java/swt/SecondaryController.java
+/workspaces/hse-swt-timetracking/src/main/java/timetracking/App.java
+/workspaces/hse-swt-timetracking/src/main/java/timetracking/SecondaryController.java
 /workspaces/hse-swt-timetracking/src/main/java/module-info.java
-/workspaces/hse-swt-timetracking/src/main/java/swt/PrimaryController.java
-/workspaces/hse-swt-timetracking/src/main/java/swt/App.java
+/workspaces/hse-swt-timetracking/src/main/java/timetracking/PrimaryController.java
