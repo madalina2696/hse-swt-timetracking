@@ -1,25 +1,27 @@
-// README at: https://github.com/devcontainers/templates/tree/main/src/java
 {
-	"name": "Java",
-	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/universal:linux",
-	"features": {
-		"ghcr.io/devcontainers/features/java:1": {
-			"version": "none",
-			"installMaven": "false",
-			"installGradle": "false"
-		},
-		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
-		"ghcr.io/cirolosapio/devcontainers-features/alpine-gh-copilot-cli:0": {},
-		"ghcr.io/cirolosapio/devcontainers-features/alpine-git:0": {}
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"vscjava.vscode-java-pack",
-				"esbenp.prettier-vscode"
-			]
-		}
-	},
-	"postCreateCommand": "sdk upgrade -y | echo 'Java Version: $(java --version) 🎉🚀'"
+  "image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "settings": {
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "git.ignoreLimitWarning": true
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/java:1.2.2": {
+      "version": "21",
+      "installMaven": "true",
+      "installGradle": "false"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/cirolosapio/devcontainers-features/alpine-gh-copilot-cli:0": {},
+    "ghcr.io/cirolosapio/devcontainers-features/alpine-git:0": {}
+  },
+  "postCreateCommand": "sdk upgrade -y | echo 'Java Version: $(java --version) 🎉🚀'"
 }
