@@ -1,7 +1,7 @@
-module swt {
+module timetracking {
     requires javafx.controls;
     requires javafx.fxml;
 
-    opens swt to javafx.fxml;
-    exports swt;
+    opens timetracking to javafx.fxml;
+    exports timetracking;
 }

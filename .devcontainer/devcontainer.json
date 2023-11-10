@@ -5,13 +5,13 @@
       "extensions": [
         "vscjava.vscode-java-pack",
         "esbenp.prettier-vscode"
-      ]
+      ],
+      "settings": {
+        "java.compile.nullAnalysis.mode": "automatic",
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "git.ignoreLimitWarning": true
+      }
     }
   },
-  "settings": {
-    "java.compile.nullAnalysis.mode": "automatic",
-    "java.configuration.updateBuildConfiguration": "automatic",
-    "git.ignoreLimitWarning": true
-  },
-  "postCreateCommand": "sdk upgrade -y | echo 'Java Version: $(java --version) 🎉🚀'"
+  "postCreateCommand": "source \"$HOME/.sdkman/bin/sdkman-init.sh\" && yes | sdk upgrade && echo 'Java Version: $(java --version) 🎉🚀'"
 }
