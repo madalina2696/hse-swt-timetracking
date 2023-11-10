@@ -13,5 +13,5 @@
       }
     }
   },
-  //"postCreateCommand": "source \"$HOME/.sdkman/bin/sdkman-init.sh\" && yes | sdk upgrade && echo 'Java Version: $(java --version) 🎉🚀'"
+  //"postCreateCommand": "echo 'Java Version: $(java --version) 🎉🚀'"
 }
