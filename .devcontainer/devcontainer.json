@@ -13,15 +13,5 @@
     "java.configuration.updateBuildConfiguration": "automatic",
     "git.ignoreLimitWarning": true
   },
-  "features": {
-    "ghcr.io/devcontainers/features/java:1.2.2": {
-      "version": "21",
-      "installMaven": "true",
-      "installGradle": "false"
-    },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/cirolosapio/devcontainers-features/alpine-gh-copilot-cli:0": {},
-    "ghcr.io/cirolosapio/devcontainers-features/alpine-git:0": {}
-  },
   "postCreateCommand": "sdk upgrade -y | echo 'Java Version: $(java --version) 🎉🚀'"
 }
