@@ -1,8 +1,6 @@
-package swt;
+package timetracking;
 
 import static org.junit.Assert.*;
-
-import timetracking.App;
 
 public class AppTest {
 

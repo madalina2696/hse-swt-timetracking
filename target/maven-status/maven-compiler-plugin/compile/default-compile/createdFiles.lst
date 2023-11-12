@@ -3,5 +3,8 @@ timetracking\Calender.class
 timetracking\Employee.class
 timetracking\User.class
 timetracking\EmployeeController.class
+timetracking\ExportMain.class
+timetracking\App.class
 timetracking\CsvLoader.class
 timetracking\Vacation.class
+timetracking\LoginController.class
