@@ -27,4 +27,8 @@ public class Employee {
     public void deleteFlexTimeVacation(LocalDate date) {
 
     }
+
+    public Object getId() {
+        return id;
+    }
 }

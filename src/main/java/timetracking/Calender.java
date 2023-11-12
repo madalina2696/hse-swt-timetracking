@@ -37,7 +37,7 @@ public class Calender {
         return end;
     }
 
-    public LocalDate getCalenderDay() {
+    public LocalDate getCalender() {
         return day;
     }
 

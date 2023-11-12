@@ -7,7 +7,6 @@ public class FlexTime {
     private int min;
     private LocalDate date;
     private boolean approved;
-    private int flexTime;
     private String id;
 
     public FlexTime(int min, LocalDate date, boolean approved) {
@@ -48,7 +47,4 @@ public class FlexTime {
         return id;
     }
 
-    /* public FlexTime getFlextime() {
-        return flexTime;
-    } */
 }

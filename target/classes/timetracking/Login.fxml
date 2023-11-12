@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-   prefHeight="480.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/16"
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="359.0" prefWidth="531.0"
+   xmlns="http://javafx.com/javafx/21"
    xmlns:fx="http://javafx.com/fxml/1" fx:controller="timetracking.LoginController">
    <children>
-      <Label layoutX="162.0" layoutY="225.0" prefHeight="18.0" prefWidth="63.0" text="Passwort:">
+      <Label layoutX="266.0" layoutY="203.0" prefHeight="18.0" prefWidth="63.0" text="Password" textFill="#0a90ef">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="tfUsername" layoutX="263.0" layoutY="181.0" prefHeight="25.0"
-         prefWidth="296.0" promptText="Bitte geben Sie ihren Nutzernamen ein" />
-      <PasswordField fx:id="pwfPassword" layoutX="263.0" layoutY="221.0" prefHeight="25.0"
-         prefWidth="296.0" promptText="Bitte geben Sie Ihr Passwort ein" />
-      <Label layoutX="162.0" layoutY="186.0" text="Benutzername:">
+      <TextField fx:id="tfUsername" layoutX="365.0" layoutY="154.0" prefHeight="25.0" prefWidth="127.0" promptText="type your name" />
+      <PasswordField fx:id="pwfPassword" layoutX="365.0" layoutY="199.0" prefHeight="25.0" prefWidth="127.0" promptText="type your password" />
+      <Label layoutX="266.0" layoutY="159.0" text="Username" textFill="#0a90ef">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Label>
-      <Button layoutX="365.0" layoutY="276.0" mnemonicParsing="false" onAction="#btnLoginClicked"
-         text="Anmelden">
+      <Button layoutX="341.0" layoutY="276.0" mnemonicParsing="false" onAction="#btnLoginClicked" text="Login" textFill="#0a90ef">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="lblWrongLogin" layoutX="271.0" layoutY="107.0" text="Zeitsystem">
+      <Label fx:id="lblWrongLogin" layoutX="281.0" layoutY="54.0" text="User Login " textFill="#0a90ef">
          <font>
             <Font name="Arial Bold Italic" size="36.0" />
          </font>
       </Label>
+      <AnchorPane prefHeight="359.0" prefWidth="205.0" style="-fx-background-color: #0a90ef;" />
    </children>
 </AnchorPane>

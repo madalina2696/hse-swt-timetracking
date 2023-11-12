@@ -1,6 +1,8 @@
 package timetracking;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,66 +12,104 @@ import javafx.scene.control.TextField;
 
 public class EmployeeController {
 
-    private User dieBeschaeftigten = new User();
+    public List<Employee> employees = new ArrayList<>();
     private String currentUserID;
 
     private void load() {
-        /* String[][] importTable;
+        String[][] importTable;
         try {
             importTable = CsvLoader.load("WorkData");
             for (int i = 0; i < importTable.length; i++) {
                 if (importTable[i][0].equalsIgnoreCase("w")) {
-                    dieBeschaeftigten.createWorker(importTable[i][1], importTable[i][2], importTable[i][3],
+                    Employee newEmployee = new Employee(importTable[i][1], importTable[i][2], importTable[i][3],
                             importTable[i][4]);
+                    employees.add(newEmployee);
                 } else if (importTable[i][0].equalsIgnoreCase("d")) {
-                    dieBeschaeftigten.addDayToWorker(importTable[i][1], importTable[i][2], importTable[i][3],
-                            importTable[i][4], importTable[i][5], importTable[i][6], importTable[i][7]);
+                    Employee employee = findEmployeeById(importTable[i][1]);
+                    if (employee != null) {
+                        employee.addDayToWorker(importTable[i][2], importTable[i][3], importTable[i][4],
+                                importTable[i][5], importTable[i][6], importTable[i][7]);
+                    }
                 } else if (importTable[i][0].equalsIgnoreCase("v")) {
-                    dieBeschaeftigten.addVacationToWorker(importTable[i][1], importTable[i][2], importTable[i][3],
-                            importTable[i][4]);
+                    Employee employee = findEmployeeById(importTable[i][1]);
+                    if (employee != null) {
+                        employee.addVacationToWorker(importTable[i][2], importTable[i][3], importTable[i][4]);
+                    }
                 } else if (importTable[i][0].equalsIgnoreCase("f")) {
-                    dieBeschaeftigten.addFlexTimeToWorker(importTable[i][1], importTable[i][2], importTable[i][3],
-                            importTable[i][4]);
+                    Employee employee = findEmployeeById(importTable[i][1]);
+                    if (employee != null) {
+                        employee.addFlexTimeToWorker(importTable[i][2], importTable[i][3], importTable[i][4]);
+                    }
+                } else {
+                    System.err.println("Error in load() in EmployeeController.java: Unknown record type '"
+                            + importTable[i][0] + "'");
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("File not availible");
-        } */
+            System.err.println("File not available");
+        }
+    }
+
+    private Employee createEmployeeFromData(String[] data) {
+        // Assuming Employee constructor takes four parameters
+        return new Employee(data[1], data[2], data[3], data[4]);
+    }
+
+    private Employee findEmployeeById(String id) {
+        // Search for the employee with the given ID in the list
+        for (Employee employee : employees) {
+            if (employee.getId().equals(id)) {
+                return employee;
+            }
+        }
+        return null;
     }
 
     private void export() {
-        /* ArrayList<String[]> exportListTable = new ArrayList<>();
-        for (Worker value : dieBeschaeftigten.getEmployeeList().values()) {
-            exportListTable.add(new String[] { "w", value.getId(), value.getFirstName(), value.getLastName(),
-                    value.getDepartment(), "", "", "", "", "" });
-            for (CalenderDay tag : dieBeschaeftigten.getEmployeeList().get(value.getId()).getTage().values()) {
-                exportListTable.add(new String[] { "d", value.getId(), tag.getCalenderDay().toString(),
-                        tag.getBegin().toString(), tag.getEnd().toString(), tag.getBreakMinute() + "",
-                        tag.getTargetMinute() + "", tag.getComment(), tag.getAbsence() + "", "" });
-            }
-            for (Holiday tag : dieBeschaeftigten.getEmployeeList().get(value.getId()).getUrlaubsAnfragen().values()) {
-                exportListTable.add(new String[] { "v", value.getId(), tag.getDate().toString(), tag.getMinute() + "",
-                        Boolean.toString(tag.getApproved()), "", "", "", "", "" });
-            }
-            for (FlexTime tag : dieBeschaeftigten.getEmployeeList().get(value.getId()).getFlexTimeAnfragen().values()) {
-                exportListTable.add(new String[] { "f", value.getId(), tag.getDate().toString(), tag.getMinute() + "",
-                        Boolean.toString(tag.getApproved()), "", "", "", "", "" });
-            }
-        }
-        String[][] exportArray2D = new String[exportListTable.size()][10];
-        int counter = 0;
-        for (String[] row : exportListTable) {
-            exportArray2D[counter] = row;
-            counter++;
-        }
-        try {
-            CsvLoader.save("WorkData", exportArray2D);
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        System.out.print(currentUserID + " ,you submitted "); */
+        /*
+         * ArrayList<String[]> exportListTable = new ArrayList<>();
+         * for (Worker value : dieBeschaeftigten.getEmployeeList().values()) {
+         * exportListTable.add(new String[] { "w", value.getId(), value.getFirstName(),
+         * value.getLastName(),
+         * value.getDepartment(), "", "", "", "", "" });
+         * for (CalenderDay tag :
+         * dieBeschaeftigten.getEmployeeList().get(value.getId()).getTage().values()) {
+         * exportListTable.add(new String[] { "d", value.getId(),
+         * tag.getCalenderDay().toString(),
+         * tag.getBegin().toString(), tag.getEnd().toString(), tag.getBreakMinute() +
+         * "",
+         * tag.getTargetMinute() + "", tag.getComment(), tag.getAbsence() + "", "" });
+         * }
+         * for (Holiday tag :
+         * dieBeschaeftigten.getEmployeeList().get(value.getId()).getUrlaubsAnfragen().
+         * values()) {
+         * exportListTable.add(new String[] { "v", value.getId(),
+         * tag.getDate().toString(), tag.getMinute() + "",
+         * Boolean.toString(tag.getApproved()), "", "", "", "", "" });
+         * }
+         * for (FlexTime tag :
+         * dieBeschaeftigten.getEmployeeList().get(value.getId()).getFlexTimeAnfragen().
+         * values()) {
+         * exportListTable.add(new String[] { "f", value.getId(),
+         * tag.getDate().toString(), tag.getMinute() + "",
+         * Boolean.toString(tag.getApproved()), "", "", "", "", "" });
+         * }
+         * }
+         * String[][] exportArray2D = new String[exportListTable.size()][10];
+         * int counter = 0;
+         * for (String[] row : exportListTable) {
+         * exportArray2D[counter] = row;
+         * counter++;
+         * }
+         * try {
+         * CsvLoader.save("WorkData", exportArray2D);
+         * } catch (IOException e) {
+         * // TODO Auto-generated catch block
+         * e.printStackTrace();
+         * }
+         * System.out.print(currentUserID + " ,you submitted ");
+         */
     }
 
     public EmployeeController() throws IOException {
@@ -112,7 +152,7 @@ public class EmployeeController {
     private TextField flexMin;
 
     @FXML
-    void btnFlextimeRequestClicked(ActionEvent event) {
+    void buttonFlextimeRequestClicked(ActionEvent event) {
         /*
          * try {
          * dieBeschaeftigten.addFlexTimeToWorker(currentUserID,
@@ -128,7 +168,7 @@ public class EmployeeController {
     }
 
     @FXML
-    void btnSaveClicked(ActionEvent event) {
+    void buttonSaveClicked(ActionEvent event) {
         /*
          * try {
          * dieBeschaeftigten.addDayToWorker(currentUserID,
@@ -146,7 +186,7 @@ public class EmployeeController {
     }
 
     @FXML
-    void btnUrlaubRequestClicked(ActionEvent event) {
+    void buttonUrlaubRequestClicked(ActionEvent event) {
         /*
          * try {
          * dieBeschaeftigten.addVacationToWorker(currentUserID,
@@ -175,5 +215,4 @@ public class EmployeeController {
     void dpUrlaubBeginSelected(ActionEvent event) {
 
     }
-
 }
