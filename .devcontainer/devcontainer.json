@@ -1,0 +1,18 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/java:latest",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "esbenp.prettier-vscode",
+        "shrey150.javafx-support"
+      ],
+      "settings": {
+        "java.compile.nullAnalysis.mode": "automatic",
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "git.ignoreLimitWarning": true
+      }
+    }
+  },
+  "postCreateCommand": "sh .devcontainer/post-create.sh"
+}
