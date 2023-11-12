@@ -95,12 +95,6 @@
           <version>0.0.8</version>
           <configuration>
             <mainClass>swt.App</mainClass>
-            <options>
-              <option>--module-path</option>
-              <option>${env.PATH_TO_FX}</option>
-              <option>--add-modules</option>
-              <option>javafx.controls,javafx.fxml</option>
-            </options>
           </configuration>
         </plugin>
       </plugins>
